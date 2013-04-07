@@ -1,0 +1,360 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		FA6D4909170F483700A27C94 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA6D4908170F483700A27C94 /* UIKit.framework */; };
+		FA6D490B170F483700A27C94 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA6D490A170F483700A27C94 /* Foundation.framework */; };
+		FA6D490D170F483700A27C94 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA6D490C170F483700A27C94 /* CoreGraphics.framework */; };
+		FA6D4913170F483700A27C94 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = FA6D4911170F483700A27C94 /* InfoPlist.strings */; };
+		FA6D4915170F483700A27C94 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FA6D4914170F483700A27C94 /* main.m */; };
+		FA6D4919170F483700A27C94 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FA6D4918170F483700A27C94 /* AppDelegate.m */; };
+		FA6D491B170F483700A27C94 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = FA6D491A170F483700A27C94 /* Default.png */; };
+		FA6D491D170F483700A27C94 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FA6D491C170F483700A27C94 /* Default@2x.png */; };
+		FA6D491F170F483700A27C94 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FA6D491E170F483700A27C94 /* Default-568h@2x.png */; };
+		FA6D4922170F483700A27C94 /* MainListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA6D4921170F483700A27C94 /* MainListViewController.m */; };
+		FA6D4925170F483700A27C94 /* MainListViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA6D4923170F483700A27C94 /* MainListViewController_iPhone.xib */; };
+		FA6D4948170F51BE00A27C94 /* FlickerParser.m in Sources */ = {isa = PBXBuildFile; fileRef = FA6D4947170F51BE00A27C94 /* FlickerParser.m */; };
+		FA942A24170F654700B45AA1 /* AsyncImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = FA942A20170F61EE00B45AA1 /* AsyncImageView.m */; };
+		FA942A28170F66D100B45AA1 /* ImageDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA942A26170F66D100B45AA1 /* ImageDetailViewController.m */; };
+		FA942A29170F66D100B45AA1 /* ImageDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA942A27170F66D100B45AA1 /* ImageDetailViewController.xib */; };
+		FA942A3117122A4B00B45AA1 /* NXDebug.m in Sources */ = {isa = PBXBuildFile; fileRef = FA942A2E171228DF00B45AA1 /* NXDebug.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		FA6D4905170F483700A27C94 /* FlickerEater.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlickerEater.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FA6D4908170F483700A27C94 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		FA6D490A170F483700A27C94 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		FA6D490C170F483700A27C94 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		FA6D4910170F483700A27C94 /* FlickerEater-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "FlickerEater-Info.plist"; sourceTree = "<group>"; };
+		FA6D4912170F483700A27C94 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		FA6D4914170F483700A27C94 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		FA6D4916170F483700A27C94 /* FlickerEater-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FlickerEater-Prefix.pch"; sourceTree = "<group>"; };
+		FA6D4917170F483700A27C94 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		FA6D4918170F483700A27C94 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		FA6D491A170F483700A27C94 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		FA6D491C170F483700A27C94 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		FA6D491E170F483700A27C94 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		FA6D4920170F483700A27C94 /* MainListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainListViewController.h; sourceTree = "<group>"; };
+		FA6D4921170F483700A27C94 /* MainListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainListViewController.m; sourceTree = "<group>"; };
+		FA6D4924170F483700A27C94 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainListViewController_iPhone.xib; sourceTree = "<group>"; };
+		FA6D492F170F483700A27C94 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		FA6D4946170F51BE00A27C94 /* FlickerParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlickerParser.h; sourceTree = "<group>"; };
+		FA6D4947170F51BE00A27C94 /* FlickerParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlickerParser.m; sourceTree = "<group>"; };
+		FA942A1F170F61EE00B45AA1 /* AsyncImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsyncImageView.h; sourceTree = "<group>"; };
+		FA942A20170F61EE00B45AA1 /* AsyncImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsyncImageView.m; sourceTree = "<group>"; };
+		FA942A25170F66D100B45AA1 /* ImageDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageDetailViewController.h; sourceTree = "<group>"; };
+		FA942A26170F66D100B45AA1 /* ImageDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageDetailViewController.m; sourceTree = "<group>"; };
+		FA942A27170F66D100B45AA1 /* ImageDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ImageDetailViewController.xib; sourceTree = "<group>"; };
+		FA942A2D171228DF00B45AA1 /* NXDebug.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NXDebug.h; sourceTree = "<group>"; };
+		FA942A2E171228DF00B45AA1 /* NXDebug.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NXDebug.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		FA6D4902170F483700A27C94 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FA6D4909170F483700A27C94 /* UIKit.framework in Frameworks */,
+				FA6D490B170F483700A27C94 /* Foundation.framework in Frameworks */,
+				FA6D490D170F483700A27C94 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		FA6D48FC170F483700A27C94 = {
+			isa = PBXGroup;
+			children = (
+				FA6D490E170F483700A27C94 /* FlickerEater */,
+				FA6D4907170F483700A27C94 /* Frameworks */,
+				FA6D4906170F483700A27C94 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		FA6D4906170F483700A27C94 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FA6D4905170F483700A27C94 /* FlickerEater.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		FA6D4907170F483700A27C94 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FA6D4908170F483700A27C94 /* UIKit.framework */,
+				FA6D490A170F483700A27C94 /* Foundation.framework */,
+				FA6D490C170F483700A27C94 /* CoreGraphics.framework */,
+				FA6D492F170F483700A27C94 /* SenTestingKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FA6D490E170F483700A27C94 /* FlickerEater */ = {
+			isa = PBXGroup;
+			children = (
+				FA942A30171228E400B45AA1 /* Utils */,
+				FA942A2C171228B100B45AA1 /* Communications */,
+				FA942A2A1712288F00B45AA1 /* ViewControllers */,
+				FA6D4917170F483700A27C94 /* AppDelegate.h */,
+				FA6D4918170F483700A27C94 /* AppDelegate.m */,
+				FA6D490F170F483700A27C94 /* Supporting Files */,
+			);
+			path = FlickerEater;
+			sourceTree = "<group>";
+		};
+		FA6D490F170F483700A27C94 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				FA6D4910170F483700A27C94 /* FlickerEater-Info.plist */,
+				FA6D4911170F483700A27C94 /* InfoPlist.strings */,
+				FA6D4914170F483700A27C94 /* main.m */,
+				FA6D4916170F483700A27C94 /* FlickerEater-Prefix.pch */,
+				FA6D491A170F483700A27C94 /* Default.png */,
+				FA6D491C170F483700A27C94 /* Default@2x.png */,
+				FA6D491E170F483700A27C94 /* Default-568h@2x.png */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		FA942A2A1712288F00B45AA1 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				FA6D4920170F483700A27C94 /* MainListViewController.h */,
+				FA6D4921170F483700A27C94 /* MainListViewController.m */,
+				FA6D4923170F483700A27C94 /* MainListViewController_iPhone.xib */,
+				FA942A25170F66D100B45AA1 /* ImageDetailViewController.h */,
+				FA942A26170F66D100B45AA1 /* ImageDetailViewController.m */,
+				FA942A27170F66D100B45AA1 /* ImageDetailViewController.xib */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		FA942A2C171228B100B45AA1 /* Communications */ = {
+			isa = PBXGroup;
+			children = (
+				FA6D4946170F51BE00A27C94 /* FlickerParser.h */,
+				FA6D4947170F51BE00A27C94 /* FlickerParser.m */,
+				FA942A1F170F61EE00B45AA1 /* AsyncImageView.h */,
+				FA942A20170F61EE00B45AA1 /* AsyncImageView.m */,
+			);
+			name = Communications;
+			sourceTree = "<group>";
+		};
+		FA942A30171228E400B45AA1 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				FA942A2D171228DF00B45AA1 /* NXDebug.h */,
+				FA942A2E171228DF00B45AA1 /* NXDebug.m */,
+			);
+			name = Utils;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		FA6D4904170F483700A27C94 /* FlickerEater */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FA6D4940170F483700A27C94 /* Build configuration list for PBXNativeTarget "FlickerEater" */;
+			buildPhases = (
+				FA6D4901170F483700A27C94 /* Sources */,
+				FA6D4902170F483700A27C94 /* Frameworks */,
+				FA6D4903170F483700A27C94 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FlickerEater;
+			productName = FlickerEater;
+			productReference = FA6D4905170F483700A27C94 /* FlickerEater.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		FA6D48FD170F483700A27C94 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0460;
+				ORGANIZATIONNAME = "Gonzalo Erro";
+			};
+			buildConfigurationList = FA6D4900170F483700A27C94 /* Build configuration list for PBXProject "FlickerEater" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = FA6D48FC170F483700A27C94;
+			productRefGroup = FA6D4906170F483700A27C94 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				FA6D4904170F483700A27C94 /* FlickerEater */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		FA6D4903170F483700A27C94 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FA6D4913170F483700A27C94 /* InfoPlist.strings in Resources */,
+				FA6D491B170F483700A27C94 /* Default.png in Resources */,
+				FA6D491D170F483700A27C94 /* Default@2x.png in Resources */,
+				FA6D491F170F483700A27C94 /* Default-568h@2x.png in Resources */,
+				FA6D4925170F483700A27C94 /* MainListViewController_iPhone.xib in Resources */,
+				FA942A29170F66D100B45AA1 /* ImageDetailViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		FA6D4901170F483700A27C94 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FA942A3117122A4B00B45AA1 /* NXDebug.m in Sources */,
+				FA942A24170F654700B45AA1 /* AsyncImageView.m in Sources */,
+				FA6D4915170F483700A27C94 /* main.m in Sources */,
+				FA6D4919170F483700A27C94 /* AppDelegate.m in Sources */,
+				FA6D4922170F483700A27C94 /* MainListViewController.m in Sources */,
+				FA6D4948170F51BE00A27C94 /* FlickerParser.m in Sources */,
+				FA942A28170F66D100B45AA1 /* ImageDetailViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		FA6D4911170F483700A27C94 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FA6D4912170F483700A27C94 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		FA6D4923170F483700A27C94 /* MainListViewController_iPhone.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FA6D4924170F483700A27C94 /* en */,
+			);
+			name = MainListViewController_iPhone.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		FA6D493E170F483700A27C94 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		FA6D493F170F483700A27C94 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		FA6D4941170F483700A27C94 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "FlickerEater/FlickerEater-Prefix.pch";
+				INFOPLIST_FILE = "FlickerEater/FlickerEater-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		FA6D4942170F483700A27C94 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "FlickerEater/FlickerEater-Prefix.pch";
+				INFOPLIST_FILE = "FlickerEater/FlickerEater-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		FA6D4900170F483700A27C94 /* Build configuration list for PBXProject "FlickerEater" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FA6D493E170F483700A27C94 /* Debug */,
+				FA6D493F170F483700A27C94 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FA6D4940170F483700A27C94 /* Build configuration list for PBXNativeTarget "FlickerEater" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FA6D4941170F483700A27C94 /* Debug */,
+				FA6D4942170F483700A27C94 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = FA6D48FD170F483700A27C94 /* Project object */;
+}
