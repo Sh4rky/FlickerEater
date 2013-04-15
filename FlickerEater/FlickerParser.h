@@ -10,7 +10,7 @@
 
 @protocol FlickerParserDelegate
 
-- (void)flickerParserEnded:(NSMutableArray *)imagesUrls;
+- (void)flickerParserEnded:(NSMutableArray *)images;
 
 @end
 

@@ -16,14 +16,20 @@ NSString *const kPhotoDetailTitle = @"Detail";
 
 @implementation ImageDetailViewController
 
-@synthesize imageURL = _imageURL;
+@synthesize photo = _photo;
+
 @synthesize fullImage = _fullImage;
+@synthesize usernameLabel = _usernameLabel;
+@synthesize titleLabel = _titleLabel;
 
 - (void)dealloc {
-    [super dealloc];
     
-    [_imageURL release];
-    [_fullImage release];
+    NXReleaseAndNil(_photo);
+    NXReleaseAndNil(_fullImage);
+    NXReleaseAndNil(_usernameLabel);
+    NXReleaseAndNil(_titleLabel);
+    
+    [super dealloc];
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -35,6 +41,7 @@ NSString *const kPhotoDetailTitle = @"Detail";
     return self;
 }
 
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -42,7 +49,10 @@ NSString *const kPhotoDetailTitle = @"Detail";
     self.title = NSLocalizedString(kPhotoDetailTitle, nil);
     [self.navigationController.navigationBar setBarStyle: UIBarStyleBlack];
     
-    [self.fullImage setImageURL:self.imageURL];
+    [self.fullImage setImageURL:[NSURL URLWithString:self.photo.url]];
+    [self.usernameLabel setText:self.photo.username];
+    [self.titleLabel setText:self.photo.title];
+    
 }
 
 

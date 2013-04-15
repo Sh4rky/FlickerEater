@@ -8,10 +8,14 @@
 
 #import <UIKit/UIKit.h>
 #import "AsyncImageView.h"
+#import "Photo.h"
 
 @interface ImageDetailViewController : UIViewController
 
-@property (nonatomic, retain)NSURL *imageURL;
+@property (nonatomic, retain)Photo *photo;
+
 @property (nonatomic, retain)IBOutlet AsyncImageView *fullImage;
+@property (nonatomic, retain)IBOutlet UILabel *usernameLabel;
+@property (nonatomic, retain)IBOutlet UILabel *titleLabel;
 
 @end

@@ -7,16 +7,21 @@
 //
 
 #import "FlickerParser.h"
-
+#import "Photo.h"
 
 NSString *const kEntryTagName = @"entry";
 NSString *const kContentTagName = @"content";
+NSString *const kAuthorsNameTagName = @"name";
+NSString *const kTitleTagName = @"title";
 
 @interface FlickerParser()
 
-@property (nonatomic, retain)NSMutableArray *imagesURLs;
+@property (nonatomic, retain)NSMutableArray *images;
+@property (nonatomic, retain)Photo *photo;
 @property (nonatomic, assign)BOOL hasEntryTagStarted;
 @property (nonatomic, assign)BOOL hasContentTagStarted;
+@property (nonatomic, assign)BOOL hasAuthorsNameTagName;
+@property (nonatomic, assign)BOOL hasTitleTagName;
 
 @end
 
@@ -24,21 +29,28 @@ NSString *const kContentTagName = @"content";
 
 @synthesize hasEntryTagStarted = _hasEntryTagStarted;
 @synthesize hasContentTagStarted = _hasContentTagStarted;
+@synthesize hasAuthorsNameTagName = _hasAuthorsNameTagName;
+@synthesize hasTitleTagName = _hasTitleTagName;
 
-@synthesize imagesURLs = _imagesURLs;
+@synthesize photo = _photo;
+@synthesize images = _images;
 @synthesize delegate = _delegate;
 
 - (void)dealloc {
-    [super dealloc];
     
-    [_imagesURLs release];
+    NXReleaseAndNil(_photo);
+    NXReleaseAndNil(_images);
     _delegate = nil;
+    
+    [super dealloc];
 }
 
 -(id)init {
-    [super init];
     
-    self.imagesURLs = [NSMutableArray array];
+    if((self = [super init])){
+    
+        self.images = [NSMutableArray array];
+    }
     
     return self;
 }
@@ -48,10 +60,24 @@ NSString *const kContentTagName = @"content";
 -(void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName attributes:(NSDictionary *)attributeDict{
     
     if([elementName isEqualToString:kEntryTagName]){
+        
+        Photo *photo = [[Photo alloc] init];
+        
+        self.photo = photo;
+        [photo release];
+        
         _hasEntryTagStarted = YES;
     }
     if ([elementName isEqualToString:kContentTagName]) {
+        
         _hasContentTagStarted = YES;
+    }
+    if ([elementName isEqualToString:kAuthorsNameTagName]) {
+        _hasAuthorsNameTagName = YES;
+    }
+    
+    if ([elementName isEqualToString:kTitleTagName]) {
+        _hasTitleTagName = YES;
     }
     
 }
@@ -68,26 +94,47 @@ NSString *const kContentTagName = @"content";
             
             if ([simpleString hasSuffix:@".jpg"] && [simpleString hasPrefix:@"http"]) {
                 
-                [_imagesURLs addObject:simpleString];
+                [_photo setUrl:simpleString];
             }
         }
+    }
+    
+    if (_hasAuthorsNameTagName) {
+        [_photo setUsername:string];
+    }
+    
+    if (_hasTitleTagName) {
+        [_photo setTitle:string];
     }
 }
 
 -(void)parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName{
     
-    if([elementName isEqualToString:[NSString stringWithFormat:@"/%@", kEntryTagName]]){
+    if([elementName isEqualToString:kEntryTagName]){
         _hasEntryTagStarted = NO;
+        
+        [_images addObject:_photo];
+        
     }
-    if ([elementName isEqualToString:[NSString stringWithFormat:@"/%@", kContentTagName]]) {
+    if ([elementName isEqualToString:kContentTagName]) {
         _hasContentTagStarted = NO;
+    }
+    
+    if ([elementName isEqualToString:kAuthorsNameTagName]) {
+        _hasAuthorsNameTagName = NO;
+    }
+    
+    if ([elementName isEqualToString:kTitleTagName]) {
+        _hasTitleTagName = NO;
     }
 }
 
 - (void)parserDidEndDocument:(NSXMLParser *)parser {
     ASSERT(_delegate);
     
-    [_delegate flickerParserEnded:_imagesURLs];
+    [_delegate flickerParserEnded:_images];
+    
+    self.images = nil;
 }
 
 @end

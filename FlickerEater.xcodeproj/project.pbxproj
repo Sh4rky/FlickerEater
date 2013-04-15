@@ -23,6 +23,7 @@
 		FA942A28170F66D100B45AA1 /* ImageDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA942A26170F66D100B45AA1 /* ImageDetailViewController.m */; };
 		FA942A29170F66D100B45AA1 /* ImageDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA942A27170F66D100B45AA1 /* ImageDetailViewController.xib */; };
 		FA942A3117122A4B00B45AA1 /* NXDebug.m in Sources */ = {isa = PBXBuildFile; fileRef = FA942A2E171228DF00B45AA1 /* NXDebug.m */; };
+		FAFDE987171B768E00E1D889 /* Photo.m in Sources */ = {isa = PBXBuildFile; fileRef = FAFDE986171B768E00E1D889 /* Photo.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +53,8 @@
 		FA942A27170F66D100B45AA1 /* ImageDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ImageDetailViewController.xib; sourceTree = "<group>"; };
 		FA942A2D171228DF00B45AA1 /* NXDebug.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NXDebug.h; sourceTree = "<group>"; };
 		FA942A2E171228DF00B45AA1 /* NXDebug.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NXDebug.m; sourceTree = "<group>"; };
+		FAFDE985171B768E00E1D889 /* Photo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Photo.h; sourceTree = "<group>"; };
+		FAFDE986171B768E00E1D889 /* Photo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Photo.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +102,7 @@
 		FA6D490E170F483700A27C94 /* FlickerEater */ = {
 			isa = PBXGroup;
 			children = (
+				FAFDE988171B769400E1D889 /* Entities */,
 				FA942A30171228E400B45AA1 /* Utils */,
 				FA942A2C171228B100B45AA1 /* Communications */,
 				FA942A2A1712288F00B45AA1 /* ViewControllers */,
@@ -154,6 +158,15 @@
 				FA942A2E171228DF00B45AA1 /* NXDebug.m */,
 			);
 			name = Utils;
+			sourceTree = "<group>";
+		};
+		FAFDE988171B769400E1D889 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				FAFDE985171B768E00E1D889 /* Photo.h */,
+				FAFDE986171B768E00E1D889 /* Photo.m */,
+			);
+			name = Entities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -230,6 +243,7 @@
 				FA6D4922170F483700A27C94 /* MainListViewController.m in Sources */,
 				FA6D4948170F51BE00A27C94 /* FlickerParser.m in Sources */,
 				FA942A28170F66D100B45AA1 /* ImageDetailViewController.m in Sources */,
+				FAFDE987171B768E00E1D889 /* Photo.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -279,7 +293,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -303,7 +317,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";

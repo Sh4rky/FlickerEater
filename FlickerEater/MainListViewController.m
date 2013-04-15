@@ -9,6 +9,7 @@
 #import "MainListViewController.h"
 #import "ImageDetailViewController.h"
 #import "AsyncImageView.h"
+#import "Photo.h"
 
 NSString *const kGalleryTitle = @"Photo Gallery";
 NSString *const kFlickerUrl = @"http://api.flickr.com/services/feeds/photos_public.gne";
@@ -20,6 +21,11 @@ NSInteger const kImageFrameThickness = 5;
 @interface MainListViewController ()
 
 @property (nonatomic, retain)NSMutableArray *imagesData;
+@property (nonatomic, retain)NSXMLParser *parser;
+@property (nonatomic, retain)NSString *completeURL;
+
+- (void)downloadDataWithParameter:(NSString *)parameters;
+- (void)downloadDefaultData;
 
 @end
 
@@ -30,13 +36,17 @@ NSInteger const kImageFrameThickness = 5;
 
 //Private
 @synthesize imagesData = _imagesData;
+@synthesize parser = _parser;
 
 - (void)dealloc {
+    
+    NXReleaseAndNil(_imagesData);
+    NXReleaseAndNil(_parser);
+    NXReleaseAndNil(_completeURL);
+    
+    NXReleaseAndNil(_imagesCollection);
+    
     [super dealloc];
-    
-    [_imagesData release];
-    
-    [_imagesCollection release];
 }
 
 - (void)viewDidLoad
@@ -48,15 +58,39 @@ NSInteger const kImageFrameThickness = 5;
     
     [self.imagesCollection registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"FlickrImageCell"];
 
-    NSXMLParser *parser = [[NSXMLParser alloc]initWithContentsOfURL:[NSURL URLWithString:kFlickerUrl]];
-    ASSERT(parser);
+    [self downloadDefaultData];
+}
+
+#pragma mark - Private Method
+
+- (void)downloadDataWithParameter:(NSString *)parameters {
     
-    FlickerParser *flickerParser = [[[FlickerParser alloc] init] autorelease];
+    self.completeURL = kFlickerUrl;
+    
+    if ([parameters length] > 0) {
+        self.completeURL = [NSString stringWithFormat:@"%@?%@", kFlickerUrl, parameters];
+    }
+    
+    [self downloadDefaultData];
+}
+
+- (void)downloadDefaultData {
+    
+    if (!_completeURL) {
+        self.completeURL = kFlickerUrl;
+    }
+    
+    NSXMLParser *parser = [[NSXMLParser alloc]initWithContentsOfURL:[NSURL URLWithString:self.completeURL]];
+    ASSERT(parser);
+    self.parser = parser;
+    
+    FlickerParser *flickerParser = [[FlickerParser alloc] init];
     flickerParser.delegate = self;
     
-    [parser setDelegate:flickerParser];
-    [parser parse];
-    [parser autorelease];
+    [_parser setDelegate:flickerParser];
+    [_parser parse];
+    
+    [parser release];
 }
 
 #pragma mark - UICollectionDatasource
@@ -71,8 +105,8 @@ NSInteger const kImageFrameThickness = 5;
     UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"FlickrImageCell" forIndexPath:indexPath];
     cell.backgroundColor = [UIColor whiteColor];
     
-    NSString *stringURL = [self.imagesData objectAtIndex:indexPath.row];
-    ASSERT_CLASS(stringURL, NSString);
+    Photo *photo = [self.imagesData objectAtIndex:indexPath.row];
+    ASSERT_CLASS(photo, Photo);
     
     //Cleaning Content View
     [[cell.contentView viewWithTag:kAsyncImageViewTag] removeFromSuperview];
@@ -88,10 +122,9 @@ NSInteger const kImageFrameThickness = 5;
     //Creating Image View and downloding it from Flicker
     AsyncImageView *asyncImageView = [[AsyncImageView alloc] initWithFrame:frame];
     [asyncImageView setActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
-    [asyncImageView setImageURL:[NSURL URLWithString:stringURL]];
+    [asyncImageView setImageURL:[NSURL URLWithString:photo.url]];
     [asyncImageView setContentMode:UIViewContentModeScaleAspectFit];
     [asyncImageView setTag:kAsyncImageViewTag];
-    
     
     UIView *blackBackground = [[UIView alloc] initWithFrame:frame];
     [blackBackground setBackgroundColor:[UIColor blackColor]];
@@ -110,11 +143,11 @@ NSInteger const kImageFrameThickness = 5;
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     
-    NSString *stringURL = [self.imagesData objectAtIndex:indexPath.row];
-    ASSERT_CLASS(stringURL, NSString);
+    Photo *photo = [self.imagesData objectAtIndex:indexPath.row];
+    ASSERT_CLASS(photo, Photo);
     
     ImageDetailViewController *imageDetailVC = [[ImageDetailViewController alloc] initWithNibName:@"ImageDetailViewController" bundle:nil];
-    [imageDetailVC setImageURL:[NSURL URLWithString:stringURL]];
+    [imageDetailVC setPhoto:photo];
     
     [self.navigationController pushViewController:imageDetailVC animated:YES];
     
@@ -124,13 +157,28 @@ NSInteger const kImageFrameThickness = 5;
 
 #pragma mark - FlickerParserDelegate
 
-
-- (void)flickerParserEnded:(NSMutableArray *)imagesUrls {
-    ASSERT_CLASS(imagesUrls, NSMutableArray);
+- (void)flickerParserEnded:(NSMutableArray *)images {
+    ASSERT_CLASS(images, NSMutableArray);
     
-    self.imagesData = imagesUrls;
+    self.imagesData = images;
     
     [self.imagesCollection reloadData];
+}
+
+#pragma mark - UISearchBarDelegate
+
+- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
+    
+    [_parser abortParsing];
+    
+    self.parser = nil;
+    self.imagesData = nil;
+    
+    [self.imagesCollection reloadData];
+    
+    [self downloadDataWithParameter:[NSString stringWithFormat:@"?tags=%@", searchBar.text]];
+    
+    [searchBar resignFirstResponder];
 }
 
 @end
