@@ -197,6 +197,11 @@
 			attributes = {
 				LastUpgradeCheck = 0460;
 				ORGANIZATIONNAME = "Gonzalo Erro";
+				TargetAttributes = {
+					FA6D4904170F483700A27C94 = {
+						DevelopmentTeam = L2H44JEF2S;
+					};
+				};
 			};
 			buildConfigurationList = FA6D4900170F483700A27C94 /* Build configuration list for PBXProject "FlickerEater" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -328,9 +333,12 @@
 		FA6D4941170F483700A27C94 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "FlickerEater/FlickerEater-Prefix.pch";
 				INFOPLIST_FILE = "FlickerEater/FlickerEater-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -339,9 +347,12 @@
 		FA6D4942170F483700A27C94 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "FlickerEater/FlickerEater-Prefix.pch";
 				INFOPLIST_FILE = "FlickerEater/FlickerEater-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};

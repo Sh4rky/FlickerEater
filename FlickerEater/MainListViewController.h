@@ -9,8 +9,9 @@
 #import <UIKit/UIKit.h>
 #import "FlickerParser.h"
 
-@interface MainListViewController : UIViewController <UICollectionViewDataSource, UICollectionViewDelegate, FlickerParserDelegate, UISearchBarDelegate>
+@interface MainListViewController : UIViewController <UICollectionViewDataSource, UICollectionViewDelegate, FlickerParserDelegate, UISearchBarDelegate, UISearchDisplayDelegate>
 
 @property(nonatomic, assign)IBOutlet UICollectionView *imagesCollection;
+@property(nonatomic, weak)IBOutlet UISearchBar *searchBar;
 
 @end

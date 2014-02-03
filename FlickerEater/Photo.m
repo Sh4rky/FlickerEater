@@ -15,15 +15,4 @@
 @synthesize date = _date;
 @synthesize url = _url;
 
-
-- (void)dealloc {
-    
-    NXReleaseAndNil(_username);
-    NXReleaseAndNil(_title);
-    NXReleaseAndNil(_date);
-    NXReleaseAndNil(_url);
-    
-    [super dealloc];
-}
-
 @end

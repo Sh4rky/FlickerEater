@@ -33,26 +33,16 @@ NSInteger const kImageFrameThickness = 5;
 
 //Public
 @synthesize imagesCollection = _imagesCollection;
+@synthesize searchBar = _searchBar;
 
 //Private
 @synthesize imagesData = _imagesData;
 @synthesize parser = _parser;
+@synthesize completeURL = _completeURL;
 
-- (void)dealloc {
-    
-    NXReleaseAndNil(_imagesData);
-    NXReleaseAndNil(_parser);
-    NXReleaseAndNil(_completeURL);
-    
-    NXReleaseAndNil(_imagesCollection);
-    
-    [super dealloc];
-}
-
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
-	
+    
     self.title = NSLocalizedString(kGalleryTitle, nil);
     [self.navigationController.navigationBar setBarStyle: UIBarStyleBlack];
     
@@ -131,10 +121,8 @@ NSInteger const kImageFrameThickness = 5;
     [blackBackground setTag:kBlackBackgroundViewTag];
     
     [cell.contentView addSubview:blackBackground];
-    [blackBackground release];
     
     [cell.contentView addSubview:asyncImageView];
-    [asyncImageView release];
     
     return cell;
 }
@@ -142,7 +130,6 @@ NSInteger const kImageFrameThickness = 5;
 #pragma mark - UICollectionDelegate
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    
     Photo *photo = [self.imagesData objectAtIndex:indexPath.row];
     ASSERT_CLASS(photo, Photo);
     
@@ -150,8 +137,6 @@ NSInteger const kImageFrameThickness = 5;
     [imageDetailVC setPhoto:photo];
     
     [self.navigationController pushViewController:imageDetailVC animated:YES];
-    
-    [imageDetailVC release];
 
 }
 
@@ -180,5 +165,6 @@ NSInteger const kImageFrameThickness = 5;
     
     [searchBar resignFirstResponder];
 }
+
 
 @end

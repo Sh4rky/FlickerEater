@@ -36,14 +36,6 @@ NSString *const kTitleTagName = @"title";
 @synthesize images = _images;
 @synthesize delegate = _delegate;
 
-- (void)dealloc {
-    
-    NXReleaseAndNil(_photo);
-    NXReleaseAndNil(_images);
-    _delegate = nil;
-    
-    [super dealloc];
-}
 
 -(id)init {
     
@@ -57,14 +49,13 @@ NSString *const kTitleTagName = @"title";
 
 #pragma mark - NSXMLParserDelegate
 
--(void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName attributes:(NSDictionary *)attributeDict{
+-(void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName attributes:(NSDictionary *)attributeDict {
     
     if([elementName isEqualToString:kEntryTagName]){
         
         Photo *photo = [[Photo alloc] init];
         
         self.photo = photo;
-        [photo release];
         
         _hasEntryTagStarted = YES;
     }

@@ -22,28 +22,17 @@ NSString *const kPhotoDetailTitle = @"Detail";
 @synthesize usernameLabel = _usernameLabel;
 @synthesize titleLabel = _titleLabel;
 
-- (void)dealloc {
-    
-    NXReleaseAndNil(_photo);
-    NXReleaseAndNil(_fullImage);
-    NXReleaseAndNil(_usernameLabel);
-    NXReleaseAndNil(_titleLabel);
-    
-    [super dealloc];
-}
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil{
+    
+    if ( (self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil]) ) {
         // Custom initialization
     }
     return self;
 }
 
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
     
     self.title = NSLocalizedString(kPhotoDetailTitle, nil);
@@ -52,7 +41,6 @@ NSString *const kPhotoDetailTitle = @"Detail";
     [self.fullImage setImageURL:[NSURL URLWithString:self.photo.url]];
     [self.usernameLabel setText:self.photo.username];
     [self.titleLabel setText:self.photo.title];
-    
 }
 
 
