@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="4510" systemVersion="12F45" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
-        <deployment defaultVersion="1536" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3742"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MainListViewController">
             <connections>
                 <outlet property="imagesCollection" destination="8" id="21"/>
-                <outlet property="searchBar" destination="26" id="tLQ-Ou-GO8"/>
+                <outlet property="searchBar" destination="bwF-JB-cUt" id="Pvx-gC-PHy"/>
                 <outlet property="searchDisplayController" destination="ATE-sL-8BX" id="jXY-iD-oAg"/>
                 <outlet property="view" destination="6" id="20"/>
             </connections>
@@ -18,30 +17,31 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleAspectFit" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ryr-cv-frA">
-                    <rect key="frame" x="0.0" y="60" width="320" height="44"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <view contentMode="scaleAspectFit" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ryr-cv-frA">
+                    <rect key="frame" x="0.0" y="62" width="320" height="44"/>
                     <subviews>
-                        <searchBar contentMode="scaleToFill" fixedFrame="YES" barStyle="black" placeholder="Filters such as: art, landscape, etc." translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="26">
+                        <searchBar contentMode="redraw" misplaced="YES" barStyle="black" placeholder="Filters such as: art, landscape, etc." translatesAutoresizingMaskIntoConstraints="NO" id="bwF-JB-cUt">
                             <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             <textInputTraits key="textInputTraits"/>
-                            <scopeButtonTitles>
-                                <string>Title</string>
-                                <string>Title</string>
-                            </scopeButtonTitles>
                             <connections>
-                                <outlet property="delegate" destination="-1" id="76"/>
+                                <outlet property="delegate" destination="-1" id="04r-cn-Mcz"/>
                             </connections>
                         </searchBar>
                     </subviews>
                     <color key="backgroundColor" red="1" green="0.13725490870000001" blue="0.2823529541" alpha="1" colorSpace="deviceRGB"/>
+                    <constraints>
+                        <constraint firstItem="bwF-JB-cUt" firstAttribute="leading" secondItem="Ryr-cv-frA" secondAttribute="leading" id="10p-iF-QR2"/>
+                        <constraint firstAttribute="bottom" secondItem="bwF-JB-cUt" secondAttribute="bottom" id="Xfl-Lz-uli"/>
+                        <constraint firstAttribute="trailing" secondItem="bwF-JB-cUt" secondAttribute="trailing" id="aeg-XG-5XG"/>
+                        <constraint firstItem="bwF-JB-cUt" firstAttribute="top" secondItem="Ryr-cv-frA" secondAttribute="top" id="ajG-hA-7sW"/>
+                    </constraints>
                 </view>
-                <collectionView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="8">
-                    <rect key="frame" x="0.0" y="104" width="320" height="464"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                <collectionView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="8">
+                    <rect key="frame" x="0.0" y="106" width="320" height="462"/>
                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="452" id="Msd-nC-UGl"/>
+                    </constraints>
                     <inset key="scrollIndicatorInsets" minX="2" minY="2" maxX="2" maxY="2"/>
                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="9">
                         <size key="itemSize" width="90" height="90"/>
@@ -59,15 +59,13 @@
             <color key="backgroundColor" white="0.75" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="8" secondAttribute="bottom" id="3vh-25-9Z1"/>
-                <constraint firstItem="8" firstAttribute="top" secondItem="Ryr-cv-frA" secondAttribute="bottom" id="5CK-7E-Wg0"/>
                 <constraint firstAttribute="trailing" secondItem="Ryr-cv-frA" secondAttribute="trailing" id="Cy4-J8-tEs"/>
                 <constraint firstItem="Ryr-cv-frA" firstAttribute="leading" secondItem="8" secondAttribute="leading" id="FXX-Lw-kpd"/>
-                <constraint firstItem="Ryr-cv-frA" firstAttribute="leading" secondItem="6" secondAttribute="leading" id="SwQ-Uv-60K"/>
+                <constraint firstItem="8" firstAttribute="top" secondItem="Ryr-cv-frA" secondAttribute="bottom" id="LSQ-7b-xgu"/>
+                <constraint firstItem="Ryr-cv-frA" firstAttribute="top" secondItem="6" secondAttribute="top" constant="62" id="Lb7-xA-4Oi"/>
+                <constraint firstItem="Ryr-cv-frA" firstAttribute="leading" secondItem="6" secondAttribute="leading" id="az8-7L-tna"/>
                 <constraint firstItem="Ryr-cv-frA" firstAttribute="trailing" secondItem="8" secondAttribute="trailing" id="kSP-db-nlg"/>
-                <constraint firstItem="Ryr-cv-frA" firstAttribute="top" secondItem="6" secondAttribute="top" constant="60" id="qTH-fN-aRB"/>
             </constraints>
-            <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
-            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
         </view>
         <searchDisplayController id="ATE-sL-8BX">
             <connections>
@@ -78,4 +76,9 @@
             </connections>
         </searchDisplayController>
     </objects>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
 </document>
