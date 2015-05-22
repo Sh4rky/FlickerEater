@@ -44,7 +44,7 @@ NSInteger const kImageFrameThickness = 5;
     [super viewDidLoad];
     
     self.title = NSLocalizedString(kGalleryTitle, nil);
-    [self.navigationController.navigationBar setBarStyle: UIBarStyleBlack];
+    [self.navigationController.navigationBar setBarStyle:UIBarStyleBlack];
     
     [self.imagesCollection registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"FlickrImageCell"];
 
@@ -58,7 +58,7 @@ NSInteger const kImageFrameThickness = 5;
     self.completeURL = kFlickerUrl;
     
     if ([parameters length] > 0) {
-        self.completeURL = [NSString stringWithFormat:@"%@?%@", kFlickerUrl, parameters];
+        self.completeURL = [NSString stringWithFormat:@"%@%@", kFlickerUrl, parameters];
     }
     
     [self downloadDefaultData];
@@ -80,7 +80,6 @@ NSInteger const kImageFrameThickness = 5;
     [_parser setDelegate:flickerParser];
     [_parser parse];
     
-    [parser release];
 }
 
 #pragma mark - UICollectionDatasource

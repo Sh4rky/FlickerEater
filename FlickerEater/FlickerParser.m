@@ -10,16 +10,18 @@
 #import "Photo.h"
 
 NSString *const kEntryTagName = @"entry";
-NSString *const kContentTagName = @"content";
+NSString *const kLinkTagName = @"link";
 NSString *const kAuthorsNameTagName = @"name";
 NSString *const kTitleTagName = @"title";
+NSString *const kLinkTagAttributedDicRelationShipAttribute = @"rel";
+NSString *const kRelationshipAttributeEnclosure = @"enclosure";
+NSString *const kHiperlinkAttribute = @"href";
 
 @interface FlickerParser()
 
 @property (nonatomic, retain)NSMutableArray *images;
 @property (nonatomic, retain)Photo *photo;
 @property (nonatomic, assign)BOOL hasEntryTagStarted;
-@property (nonatomic, assign)BOOL hasContentTagStarted;
 @property (nonatomic, assign)BOOL hasAuthorsNameTagName;
 @property (nonatomic, assign)BOOL hasTitleTagName;
 
@@ -28,7 +30,6 @@ NSString *const kTitleTagName = @"title";
 @implementation FlickerParser
 
 @synthesize hasEntryTagStarted = _hasEntryTagStarted;
-@synthesize hasContentTagStarted = _hasContentTagStarted;
 @synthesize hasAuthorsNameTagName = _hasAuthorsNameTagName;
 @synthesize hasTitleTagName = _hasTitleTagName;
 
@@ -59,9 +60,15 @@ NSString *const kTitleTagName = @"title";
         
         _hasEntryTagStarted = YES;
     }
-    if ([elementName isEqualToString:kContentTagName]) {
+    if ([elementName isEqualToString:kLinkTagName] &&
+        [[attributeDict objectForKey:kLinkTagAttributedDicRelationShipAttribute] isEqualToString:kRelationshipAttributeEnclosure]) {
         
-        _hasContentTagStarted = YES;
+        NSString *simpleString = [attributeDict objectForKey:kHiperlinkAttribute];
+        
+        if ([simpleString hasSuffix:@".jpg"] && [simpleString hasPrefix:@"http"]) {
+            
+            [_photo setUrl:simpleString];
+        }
     }
     if ([elementName isEqualToString:kAuthorsNameTagName]) {
         _hasAuthorsNameTagName = YES;
@@ -73,22 +80,7 @@ NSString *const kTitleTagName = @"title";
     
 }
 
-
 -(void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string {
-    
-    if(_hasContentTagStarted)
-    {
-        NSArray *stringsArray = [string componentsSeparatedByString:@";"];
-        
-        for (NSString *simpleString in stringsArray) {
-            ASSERT_CLASS(simpleString, NSString);
-            
-            if ([simpleString hasSuffix:@".jpg"] && [simpleString hasPrefix:@"http"]) {
-                
-                [_photo setUrl:simpleString];
-            }
-        }
-    }
     
     if (_hasAuthorsNameTagName) {
         [_photo setUsername:string];
@@ -106,9 +98,7 @@ NSString *const kTitleTagName = @"title";
         
         [_images addObject:_photo];
         
-    }
-    if ([elementName isEqualToString:kContentTagName]) {
-        _hasContentTagStarted = NO;
+        self.photo = nil;
     }
     
     if ([elementName isEqualToString:kAuthorsNameTagName]) {
