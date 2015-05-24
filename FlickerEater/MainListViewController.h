@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "FlickerParser.h"
+#import "XMLParserDelegate.h"
 
 @interface MainListViewController : UIViewController <UICollectionViewDataSource, UICollectionViewDelegate, FlickerParserDelegate, UISearchBarDelegate, UISearchDisplayDelegate>
 

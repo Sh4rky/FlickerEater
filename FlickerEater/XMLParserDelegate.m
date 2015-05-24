@@ -6,7 +6,7 @@
 //  Copyright (c) 2013 Gonzalo Erro. All rights reserved.
 //
 
-#import "FlickerParser.h"
+#import "XMLParserDelegate.h"
 #import "Photo.h"
 
 NSString *const kEntryTagName = @"entry";
@@ -17,7 +17,7 @@ NSString *const kLinkTagAttributedDicRelationShipAttribute = @"rel";
 NSString *const kRelationshipAttributeEnclosure = @"enclosure";
 NSString *const kHiperlinkAttribute = @"href";
 
-@interface FlickerParser()
+@interface XMLParserDelegate()
 
 @property (nonatomic, retain)NSMutableArray *images;
 @property (nonatomic, retain)Photo *photo;
@@ -27,7 +27,7 @@ NSString *const kHiperlinkAttribute = @"href";
 
 @end
 
-@implementation FlickerParser
+@implementation XMLParserDelegate
 
 @synthesize hasEntryTagStarted = _hasEntryTagStarted;
 @synthesize hasAuthorsNameTagName = _hasAuthorsNameTagName;
@@ -37,6 +37,18 @@ NSString *const kHiperlinkAttribute = @"href";
 @synthesize images = _images;
 @synthesize delegate = _delegate;
 
+
+- (id)initWithDelegate:(id<FlickerParserDelegate>)delegate
+{
+    ASSERT(delegate);
+    
+    if ( (self = [self init])) {
+        
+        _delegate = delegate;
+    }
+    
+    return self;
+}
 
 -(id)init {
     

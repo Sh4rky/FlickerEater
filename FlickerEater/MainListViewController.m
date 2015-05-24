@@ -74,7 +74,7 @@ NSInteger const kImageFrameThickness = 5;
     ASSERT(parser);
     self.parser = parser;
     
-    FlickerParser *flickerParser = [[FlickerParser alloc] init];
+    XMLParserDelegate *flickerParser = [[XMLParserDelegate alloc] init];
     flickerParser.delegate = self;
     
     [_parser setDelegate:flickerParser];
