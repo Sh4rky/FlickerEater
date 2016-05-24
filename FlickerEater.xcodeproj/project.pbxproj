@@ -260,6 +260,7 @@
 				BFA3E8911B0F9F9500AFFA4D /* Frameworks */,
 				BFA3E8921B0F9F9500AFFA4D /* Resources */,
 				3252301C132B1E349F8A35C9 /* Copy Pods Resources */,
+				540D93822BB601CC519536AF /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -280,6 +281,7 @@
 				FA6D4902170F483700A27C94 /* Frameworks */,
 				FA6D4903170F483700A27C94 /* Resources */,
 				6AE33824A8C32AC51A926286 /* Copy Pods Resources */,
+				4B270FBE14E4E726FD1412CF /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -304,7 +306,7 @@
 						TestTargetID = FA6D4904170F483700A27C94;
 					};
 					FA6D4904170F483700A27C94 = {
-						DevelopmentTeam = L2H44JEF2S;
+						DevelopmentTeam = D46J73KHUX;
 					};
 				};
 			};
@@ -380,6 +382,36 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FlickerEaterTests/Pods-FlickerEaterTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4B270FBE14E4E726FD1412CF /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		540D93822BB601CC519536AF /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FlickerEaterTests/Pods-FlickerEaterTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		6AE33824A8C32AC51A926286 /* Copy Pods Resources */ = {
@@ -601,6 +633,7 @@
 			buildSettings = {
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
@@ -610,6 +643,7 @@
 				INFOPLIST_FILE = "FlickerEater/FlickerEater-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -620,6 +654,7 @@
 			buildSettings = {
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
@@ -629,6 +664,7 @@
 				INFOPLIST_FILE = "FlickerEater/FlickerEater-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

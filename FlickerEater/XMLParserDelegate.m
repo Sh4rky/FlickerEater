@@ -29,22 +29,13 @@ NSString *const kHiperlinkAttribute = @"href";
 
 @implementation XMLParserDelegate
 
-@synthesize hasEntryTagStarted = _hasEntryTagStarted;
-@synthesize hasAuthorsNameTagName = _hasAuthorsNameTagName;
-@synthesize hasTitleTagName = _hasTitleTagName;
-
-@synthesize photo = _photo;
-@synthesize images = _images;
-@synthesize delegate = _delegate;
-
-
 - (id)initWithDelegate:(id<FlickerParserDelegate>)delegate
 {
     ASSERT(delegate);
     
     if ( (self = [self init])) {
         
-        _delegate = delegate;
+        self.delegate = delegate;
     }
     
     return self;
